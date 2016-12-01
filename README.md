@@ -58,3 +58,7 @@
 ____
 #####长期收集网址
   IOS和Android APP界面设计相关 [http://www.tuicool.com/articles/vymQJ3](http://www.tuicool.com/articles/vymQJ3)
+#####微信长度
+  |ip4 |640*960   |wxH 866 |
+  |ip5 |640 1136  |wxH 1042|
+  |ip6 |750 1334  |wxH 1206|
