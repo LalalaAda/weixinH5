@@ -59,6 +59,15 @@ ____
 #####长期收集网址
   IOS和Android APP界面设计相关 [http://www.tuicool.com/articles/vymQJ3](http://www.tuicool.com/articles/vymQJ3)
 #####微信长度
+  |型号|长宽      |微信可视长宽|
+  |----|:--------:|:------:|
   |ip4 |640*960   |wxH 866 |
   |ip5 |640 1136  |wxH 1042|
   |ip6 |750 1334  |wxH 1206|
+
+#####rem与border-radius 50%
+    在微信浏览器中，常常rem值的长宽元素设置border-radius:50%不能
+变成圆形  需要全部采用px值才行
+eg:
+~~.circle{width: 0.33333rem; height: 0.33333rem; border-radius: 50%;}~~
+.circle{width:20px;height:20px;border-radius: 50%;}
