@@ -1,3 +1,5 @@
+
+-----------
 # weixinH5
 微信端H5页面
 
@@ -62,8 +64,8 @@ ____
   |型号|长宽      |微信可视长宽|
   |----|:--------:|:------:|
   |ip4 |640*960   |wxH 866 |
-  |ip5 |640 1136  |wxH 1042|
-  |ip6 |750 1334  |wxH 1206|
+  |ip5 |640*1136  |wxH 1042|
+  |ip6 |750*1334  |wxH 1206|
 
 #####rem与border-radius 50%
     在微信浏览器中，常常rem值的长宽元素设置border-radius:50%不能
@@ -71,3 +73,27 @@ ____
 eg:
 ~~.circle{width: 0.33333rem; height: 0.33333rem; border-radius: 50%;}~~
 .circle{width:20px;height:20px;border-radius: 50%;}
+
+##### 易企秀处理模板
+原稿 根据640的稿子写css 然后再根据机型的比例宽高对比320/486更改对应的
+viewport
+<meta name="viewport" content="width=320, initial-scale=scale, maximum-scale=scale, user-scalable=no">
+````javascript
+    function setScale(){
+        if(window.top !== window){
+           return;
+        }
+        var scale = 1;
+        var width = document.documentElement.clientWidth || 320;
+        var height = document.documentelement.clientHeight || 486;
+        if(width/height >= 320/486){
+            scale = height/486;
+        }else{
+            scale = width/320;
+        }
+        var content = 'width=320, initial-sacle='+ scale +',maximum-scale='+
+                      scale +', user-scalable=no';
+        document.getElementById('viewport').setAttribute('content', content);
+    }
+````
+参考附图 易企秀h5scale.png
