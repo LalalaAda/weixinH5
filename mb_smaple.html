@@ -62,9 +62,21 @@
     @media screen and (min-device-height: 667px) {
       /*ip6*/
     }
+    @media screen and (min-device-width: 760px){
+     /* ipad  */
+   }
+   @media screen and (min-device-width: 1020px){
+     /* ipad pro */
+   }
+   .landscapescreen{width: 100%;height: 100%;color: #fff;background-color: #008c8c;font-size: 22px;text-align: center;display: none;z-index: 999999;position: absolute;line-height:100%;}
+   .landscapescreen span{top: 50%;position: absolute;left: 20%;right: 20%;display: none;}
+   @media screen and (orientation: landscape){
+     .landscapescreen,.landscapescreen span{display: block;}
+   }
   </style>
 </head>
 <body>
+  <div class="landscapescreen"><span>为了更好的体验，请使用竖屏浏览</span></div>
   <header></header>
   <section>
     <div class="cardview">
@@ -86,6 +98,13 @@
     <a href="http://www.baidu.com" class="">百度一下</a>
   </section>
   <footer></footer>
+  <script src="/js/zepto.min.js"></script>
+  <script>
+    $('.landscapescreen').on('touchstart touchmove click', function(e){
+      e.preventDefault();
+      return false;
+    });
+  </script>
 </body>
 </html>
     
