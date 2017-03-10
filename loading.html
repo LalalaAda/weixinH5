@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>测试loading</title>
+  <style>
+    html * {outline: 0;-webkit-text-size-adjust: none;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+    html,body{-moz-osx-font-smoothing: grayscale;-webkit-font-smoothing: antialiased;-webkit-text-size-adjust: 100%;text-size-adjust:100%;}
+    body{overflow-x: hidden;width: 100vw;margin: 0;padding: 0;}
+    input,button{outline: 0;}
+    a{text-decoration: none;-webkit-tap-highlight-color: transparent;}
+    .clearfix{*zoom: 1;/* ie 6/7 */}
+    .clearfix:before, .clearfix:after{ content: " ";display: table; }
+    .clearfix:after{clear: both;}
+    h1,h2,h3,h4,h5,h6,p,ul,li{margin: 0;padding: 0;}
+    img{vertical-align: middle;}
+    input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-appearance: none;}
+    .fl{float: left;} .fr{float: right;}
+    .font-ellipsis{text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+    .fcolor_grey{color: #999;}
+  </style>
+  <script>
+    !function(a,b){function c(){var b=f.getBoundingClientRect().width;b/i>540&&(b=540*i);var c=b/10;f.style.fontSize=c+"px",k.rem=a.rem=c}var d,e=a.document,f=e.documentElement,g=e.querySelector('meta[name="viewport"]'),h=e.querySelector('meta[name="flexible"]'),i=0,j=0,k=b.flexible||(b.flexible={});if(g){var l=g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);l&&(j=parseFloat(l[1]),i=parseInt(1/j))}else if(h){var m=h.getAttribute("content");if(m){var n=m.match(/initial\-dpr=([\d\.]+)/),o=m.match(/maximum\-dpr=([\d\.]+)/);n&&(i=parseFloat(n[1]),j=parseFloat((1/i).toFixed(2))),o&&(i=parseFloat(o[1]),j=parseFloat((1/i).toFixed(2)))}}if(!i&&!j){var q=a.devicePixelRatio,u=q.toString().match(/^[1-9]\d*$/g);i=u?q>=3&&(!i||i>=3)?3:q>=2&&(!i||i>=2)?2:1:1,j=1/i}if(f.setAttribute("data-dpr",i),!g)if(g=e.createElement("meta"),g.setAttribute("name","viewport"),g.setAttribute("content","initial-scale="+j+", maximum-scale="+j+", minimum-scale="+j+", user-scalable=no"),f.firstElementChild)f.firstElementChild.appendChild(g);else{var r=e.createElement("div");r.appendChild(g),e.write(r.innerHTML)}a.addEventListener("resize",function(){clearTimeout(d),d=setTimeout(c,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(d),d=setTimeout(c,300))},!1),"complete"===e.readyState?e.body.style.fontSize=12*i+"px":e.addEventListener("DOMContentLoaded",function(){e.body.style.fontSize=12*i+"px"},!1),c(),k.dpr=a.dpr=i,k.refreshRem=c,k.rem2px=function(a){var b=parseFloat(a)*this.rem;return"string"==typeof a&&a.match(/rem$/)&&(b+="px"),b},k.px2rem=function(a){var b=parseFloat(a)/this.rem;return"string"==typeof a&&a.match(/px$/)&&(b+="rem"),b}}(window,window.lib||(window.lib={}));
+  </script>
+  <link rel="stylesheet" href="./css/load.css">
+  <style>
+    .loading{width: 100vw;height:100vh;position: relative;}
+    .a_l{position: relative;width: 40px;height: 40px;top: 45%;left:0;right: 0;bottom: 0;margin: auto;}
+    .a_l span{display: block;bottom: 10px;left: 10px;width: 20px;height: 20px;background: #9b59b6;position: absolute;}
+    .b_l{font-size: 26px;position: absolute;top: 52%;width: 100%;text-align: center;}
+
+    
+    
+    /*mediaquery*/
+    @media screen and (max-device-width: 320px) {
+      /*code for width ip4 ip5*/
+    }
+    @media screen and (min-device-width: 375px) {
+      /*code for width ip6*/
+    }
+    @media screen and (min-device-width: 414px) {
+      /*code for width ip6 p*/
+    }
+    @media screen and (max-device-height: 480px) {
+      /*code for height ip4*/
+    }
+    @media screen and (max-device-height: 568px) and (min-device-height: 500px) {
+      /*ip5*/
+    }
+    @media screen and (min-device-height: 667px) {
+      /*ip6*/
+    }
+    @media screen and (min-device-width: 760px){
+     /* ipad  */
+   }
+   @media screen and (min-device-width: 1020px){
+     /* ipad pro */
+   }
+   
+  </style>
+</head>
+<body>
+  <div class="loading">
+    <div class="a_l">
+      <span class="ani_load_a_1"></span>
+      <span class="ani_load_a_2"></span>
+      <span class="ani_load_a_3"></span>
+      <span class="ani_load_a_4"></span>
+    </div>
+    <p class="b_l">50%</p>
+  </div>
+  <header></header>
+  <section></section>
+  <footer></footer>
+  <script src="./js/zepto.min.js"></script>
+  <script>
+    
+  </script>
+</body>
+</html>
+    

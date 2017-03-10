@@ -97,3 +97,11 @@ viewport
     }
 ````
 参考附图 易企秀h5scale.png
+
+##### 简单nodejs搭建的webserver
+npm install http-server -g
+命令行运行 httpserver
+cmd:
+cd [ProjectName]
+http-server
+
