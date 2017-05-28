@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>--------</title>
+  <style>
+    html * {outline: 0;-webkit-text-size-adjust: none;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+    html,body{-moz-osx-font-smoothing: grayscale;-webkit-font-smoothing: antialiased;-webkit-text-size-adjust: 100%;text-size-adjust:100%;font-size:16px;}
+    body{overflow-x: hidden;width: 100vw;margin: 0;padding: 0;}
+    input,button{outline: 0;}
+    a{text-decoration: none;-webkit-tap-highlight-color: transparent;}
+    .clearfix{*zoom: 1;/* ie 6/7 */}
+    .clearfix:before, .clearfix:after{ content: " ";display: table; }
+    .clearfix:after{clear: both;}
+    h1,h2,h3,h4,h5,h6,p,ul,li{margin: 0;padding: 0;}
+    img{vertical-align: middle;}
+    input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-appearance: none;}
+    .fl{float: left;} .fr{float: right;}
+    .font-ellipsis{text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+    .fcolor_grey{color: #999;}
+  </style>
+  <script>
+    !function(a,b){function c(){var b=f.getBoundingClientRect().width;b/i>540&&(b=540*i);var c=b/10;f.style.fontSize=c+"px",k.rem=a.rem=c}var d,e=a.document,f=e.documentElement,g=e.querySelector('meta[name="viewport"]'),h=e.querySelector('meta[name="flexible"]'),i=0,j=0,k=b.flexible||(b.flexible={});if(g){console.warn("将根据已有的meta标签来设置缩放比例");var l=g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);l&&(j=parseFloat(l[1]),i=parseInt(1/j))}else if(h){var m=h.getAttribute("content");if(m){var n=m.match(/initial\-dpr=([\d\.]+)/),o=m.match(/maximum\-dpr=([\d\.]+)/);n&&(i=parseFloat(n[1]),j=parseFloat((1/i).toFixed(2))),o&&(i=parseFloat(o[1]),j=parseFloat((1/i).toFixed(2)))}}if(!i&&!j){var q=a.devicePixelRatio,u=q.toString().match(/^[1-9]\d*$/g);i=u?q>=3&&(!i||i>=3)?3:q>=2&&(!i||i>=2)?2:1:1,j=1/i}if(f.setAttribute("data-dpr",i),!g)if(g=e.createElement("meta"),g.setAttribute("name","viewport"),g.setAttribute("content","initial-scale="+j+", maximum-scale="+j+", minimum-scale="+j+", user-scalable=no"),f.firstElementChild)f.firstElementChild.appendChild(g);else{var r=e.createElement("div");r.appendChild(g),e.write(r.innerHTML)}a.addEventListener("resize",function(){clearTimeout(d),d=setTimeout(c,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(d),d=setTimeout(c,300))},!1),"complete"===e.readyState?e.body.style.fontSize=12*i+"px":e.addEventListener("DOMContentLoaded",function(){e.body.style.fontSize=12*i+"px"},!1),c(),k.dpr=a.dpr=i,k.refreshRem=c,k.rem2px=function(a){var b=parseFloat(a)*this.rem;return"string"==typeof a&&a.match(/rem$/)&&(b+="px"),b},k.px2rem=function(a){var b=parseFloat(a)/this.rem;return"string"==typeof a&&a.match(/px$/)&&(b+="rem"),b}}(window,window.lib||(window.lib={}));
+  </script>
+  <style>
+   body{padding: 8px;background-color:#ffe4c4;box-sizing:border-box;}
+   p{margin-bottom:13px;}
+   [data-dpr="2"]body{font-size: 32px;}
+   [data-dpr="3"]body{font-size: 54px;}
+    .code001{background-color: #335151;border: 2px solid cornsilk;color: antiquewhite;line-height: 2.5;box-sizing: border-box;text-indent: 4px;}
+
+    /*mediaquery*/
+    @media screen and (max-device-width: 320px) {
+      /*code for width ip4 ip5*/
+    }
+    @media screen and (min-device-width: 375px) {
+      /*code for width ip6*/
+    }
+    @media screen and (min-device-width: 414px) {
+      /*code for width ip6 p*/
+    }
+    @media screen and (max-device-height: 480px) {
+      /*code for height ip4*/
+    }
+    @media screen and (max-device-height: 568px) and (min-device-height: 500px) {
+      /*ip5*/
+    }
+    @media screen and (min-device-height: 667px) {
+      /*ip6*/
+    }
+   .logbox{background-color:#eee;border: 2px solid #ada;border-radius:4px;padding: 4px;}
+   
+   
+  </style>
+</head>
+<body>
+  <header></header>
+  <section>
+    <div class="code001">
+      <h2>emacs配置</h2>
+      <p>一般是修改.emacs文件</p>
+      <p>修改内容为init.el文件内容</p>
+      <p>添加paredit-mode 需添加paredit.el文件</p>
+    </div>
+    <div class="logbox">
+      <h3>额外安装的软件包</h3>
+      <P>安装melpa源</P>
+      <p>安装js2-mode、ace-window、web-mode、color-theme、solarized-theme、company-mode</p>
+      <p>添加日期时间显示</p>
+      <p>.....2017.01.05....周四...</p>
+    </div>
+    <div class="logbox">
+      <h3>快捷键</h3>
+      <p>C-x r m书签 C-x r b跳至书签位置</p>
+      <p>C-SPC C-SPC标记两次 取消标记状态置入MarkRing 然后C-u C-SPC可以回到标记处</p>
+      <p>company-mode配置</p>
+      <p>(require 'company)
+        (setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
+        (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+        (define-key company-mode-map (kbd "C--") 'company-filter-candidates)
+        (setq company-tooltip-margin 2)</p>
+    </div>
+    <div class="logbox">
+      <h3>查找替换</h3>
+      <p>C-s 递增向下查找 C-r 递增向上查找</p>
+      <p>M-%  或者 ESC-% 查找替换  按y确认替换</p>
+    </div>
+    <div class="logbox">
+      <h3>快捷键</h3>
+      <p>M-> 跳转到文本尾部 M-< 跳转到文本开头</p>
+      <p>修改不能全局company 补全模式 需要手动开启</p>
+    </div>
+    <div class="logbox">
+      <h3>Fill-Column-Indicator插件 一根80行的基准线</h3>
+      <p>
+        (add-to-list 'load-path "c:/emacs/.emacs.d/Fill-Column-Indicator/")<br>
+        (require 'fill-column-indicator)  ;; run M-x fci<br>
+        (setq fci-rule-column 80)<br>
+        (setq fci-rule-width 1)<br>
+        (setq fci-rule-color "darkorchid")<br>
+      </p>
+    </div>
+    <div class="logbox">
+      <h3>防止页面滚动时跳动， scroll-margin 3 可以在靠近屏幕边沿3行时就开始滚动，可以很好的看到上下文。</h3>
+      <p>(setq scroll-margin 3
+        scroll-conservatively 10000)</p>
+    </div>
+    <div class="logbox">
+      <h3>使用org-mode快捷键</h3>
+      <p>C-c C-e h h 转化org文件为html</p>
+      <p>
+        C-c C-l 修改光标处链接 M-S-UP/DOWN 将当前项和它的子项向上/下移动
+        (和相同的缩进的前/后一个项交换位置),如果列表是有序的,数字会自动
+        改变. S --> shift键
+      </p>
+    </div>
+    <div class="logbox">
+      <h3>关于orgmode table字体不齐</h3>
+      <p>设置中文字体宽度和英文字体宽度</p>
+      <p>
+        在我的配置中
+        (set-face-attribute  'default nil :font "Ubuntu Mono-13")<br>
+        (dolist (charset '(kana han symbol cjk-misc bopomofo)) <br>
+          (set-fontset-font (frame-parameter nil 'font)        <br> 
+          charset                                              <br>
+          (font-spec :family "Microsoft yahei" :size 16)))     <br>
+
+      </p>
+    </div>
+  </section>
+  <footer></footer>
+</body>
+</html>
+    
