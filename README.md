@@ -104,4 +104,28 @@ npm install http-server -g
 cmd:
 cd [ProjectName]
 http-server
+默认端口8088 改启用端口80 
+http-server -p 80
+
+#### 关于background-size
+````css
+    a{
+        background-size: cotain;
+        background-size: cover;
+        background-size: 100% auto;
+    }
+````
+cotain != 100% auto;
+属性：
+<length>
+<length> 值，指定背景图片大小，不能为负值。
+<percentage>
+<percentage> 值，指定背景图片相对背景区（background positioning area）的百分比。背景区由background-origin设置，默认为盒模型的内容区与内边距，也可设置为只有内容区，或者还包括边框。如果attachment 为fixed，背景区为浏览器可视区（即视口），不包括滚动条。不能为负值。
+auto
+以背景图片的比例缩放背景图片。
+cover
+缩放背景图片以完全覆盖背景区，可能背景图片部分看不见。
+contain
+缩放背景图片以完全装入背景区，可能背景区部分空白。
+
 
