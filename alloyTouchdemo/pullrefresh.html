@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>下拉刷新及上滑加载</title>
+  <style>
+    html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}html,body{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;text-size-adjust:100%}body{overflow-x:hidden;width:100%;width:100vw;margin:0;padding:0}input,button{outline:0}a{text-decoration:none;-webkit-tap-highlight-color:transparent}.clearfix{*zoom:1}.clearfix:before,.clearfix:after{content:" ";display:table}.clearfix:after{clear:both}h1,h2,h3,h4,h5,h6,p,ul,li{margin:0;padding:0}ul,li{list-style:none}img{vertical-align:middle}input[type="submit"],input[type="reset"],input[type="button"],button{-webkit-appearance:none}.fl{float:left}.fr{float:right}.font-ellipsis{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.fcolor_grey{color:#999}.fjustify{text-align:justify}
+  </style>
+  <script>
+    !function(a,b){function c(){var b=f.getBoundingClientRect().width;b/i>540&&(b=540*i);var c=b/10;f.style.fontSize=c+"px",k.rem=a.rem=c}var d,e=a.document,f=e.documentElement,g=e.querySelector('meta[name="viewport"]'),h=e.querySelector('meta[name="flexible"]'),i=0,j=0,k=b.flexible||(b.flexible={});if(g){var l=g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);l&&(j=parseFloat(l[1]),i=parseInt(1/j))}else if(h){var m=h.getAttribute("content");if(m){var n=m.match(/initial\-dpr=([\d\.]+)/),o=m.match(/maximum\-dpr=([\d\.]+)/);n&&(i=parseFloat(n[1]),j=parseFloat((1/i).toFixed(2))),o&&(i=parseFloat(o[1]),j=parseFloat((1/i).toFixed(2)))}}if(!i&&!j){var q=a.devicePixelRatio,u=q.toString().match(/^[1-9]\d*$/g);i=u?q>=3&&(!i||i>=3)?3:q>=2&&(!i||i>=2)?2:1:1,j=1/i}if(f.setAttribute("data-dpr",i),!g)if(g=e.createElement("meta"),g.setAttribute("name","viewport"),g.setAttribute("content","initial-scale="+j+", maximum-scale="+j+", minimum-scale="+j+", user-scalable=no"),f.firstElementChild)f.firstElementChild.appendChild(g);else{var r=e.createElement("div");r.appendChild(g),e.write(r.innerHTML)}a.addEventListener("resize",function(){clearTimeout(d),d=setTimeout(c,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(d),d=setTimeout(c,300))},!1),"complete"===e.readyState?e.body.style.fontSize=12*i+"px":e.addEventListener("DOMContentLoaded",function(){e.body.style.fontSize=12*i+"px"},!1),c(),k.dpr=a.dpr=i,k.refreshRem=c,k.rem2px=function(a){var b=parseFloat(a)*this.rem;return"string"==typeof a&&a.match(/rem$/)&&(b+="px"),b},k.px2rem=function(a){var b=parseFloat(a)/this.rem;return"string"==typeof a&&a.match(/px$/)&&(b+="rem"),b}}(window,window.lib||(window.lib={}));
+  </script>
+  <link rel="stylesheet" href="index.css">
+<body>
+  <div id="pull_refresh" class="pull-refresh">
+    <div class="pull">
+      <div id="arrow" class="arrow">
+        <img src="./img/arrow.png" alt=""><br>
+      </div>
+    </div>
+    <div class="loading">
+        <svg width='40px' height='40px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-default">
+          <rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#00a9f2' transform='rotate(0 50 50) translate(0 -30)'>
+              <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0s' repeatCount='indefinite' />
+          </rect><rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#00a9f2' transform='rotate(30 50 50) translate(0 -30)'>
+              <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.08333333333333333s' repeatCount='indefinite' />
+          </rect><rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#00a9f2' transform='rotate(60 50 50) translate(0 -30)'>
+              <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.16666666666666666s' repeatCount='indefinite' />
+          </rect><rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#00a9f2' transform='rotate(90 50 50) translate(0 -30)'>
+              <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.25s' repeatCount='indefinite' />
+          </rect><rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#00a9f2' transform='rotate(120 50 50) translate(0 -30)'>
+              <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.3333333333333333s' repeatCount='indefinite' />
+          </rect><rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#00a9f2' transform='rotate(150 50 50) translate(0 -30)'>
+              <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.4166666666666667s' repeatCount='indefinite' />
+          </rect><rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#00a9f2' transform='rotate(180 50 50) translate(0 -30)'>
+              <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.5s' repeatCount='indefinite' />
+          </rect><rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#00a9f2' transform='rotate(210 50 50) translate(0 -30)'>
+              <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.5833333333333334s' repeatCount='indefinite' />
+          </rect><rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#00a9f2' transform='rotate(240 50 50) translate(0 -30)'>
+              <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.6666666666666666s' repeatCount='indefinite' />
+          </rect><rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#00a9f2' transform='rotate(270 50 50) translate(0 -30)'>
+              <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.75s' repeatCount='indefinite' />
+          </rect><rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#00a9f2' transform='rotate(300 50 50) translate(0 -30)'>
+              <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.8333333333333334s' repeatCount='indefinite' />
+          </rect><rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#00a9f2' transform='rotate(330 50 50) translate(0 -30)'>
+              <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.9166666666666666s' repeatCount='indefinite' />
+          </rect>
+        </svg>
+    </div>
+  </div>
+  <div id="header">
+    learning AlloyTouch
+  </div>
+  <div id="wrapper">
+    <div id="scroller">
+      <ul id="list">
+
+          <li class="uls">
+              <div class="status">
+                  <span>20天前 推荐</span>
+              </div>
+
+              <div class="border-line" style="margin-top: 9px; -webkit-transform-origin: 0 100%;"></div>
+              <div class="flexcontainer" cmd="jumpLink" data-url="http://post.mp.qq.com/kan/show/0-15524548.html?article_id=15524548&amp;_wv=2147483777&amp;sig=86fd9f739889d4dc34b1432caa1bed9e&amp;time=1481088300&amp;_pflag=1&amp;x5PreFetch=1" data-id="14095558">
+                  <div class="bgimg lazy" style="background-image: url('http://qqpublic.qpic.cn/qq_public_cover/0/0-10000-D32F6241C6868DAC1C0FB1A1045EFBB9_open/320')"></div>
+                  <div class="flex-column">
+                      <p class="textOverflow abstract">Gigi和Bella， 这俩姐妹... 全是腿啊！</p>
+                      <p class="from">英国那些事儿</p>
+                  </div>
+              </div>
+              <div class="border-line"></div>
+          </li>
+          <li class="uls">
+              <div class="status">
+                  <span>33天前 推荐</span>
+              </div>
+
+              <div class="border-line" style="margin-top: 9px; -webkit-transform-origin: 0 100%;"></div>
+              <div class="flexcontainer" cmd="jumpLink" data-url="http://post.mp.qq.com/kan/article/2895853199-24363359.html?_wv=2281701505&amp;sig=fc71045b8b2c4c018863273a5aa52b8a&amp;article_id=24363359&amp;time=1479981906" data-id="13377424">
+
+
+                  <div class="bgimg lazy" style="background-image: url('http://qqpublic.qpic.cn/qq_public_cover/0/0-10000-3943C30781AE530BF03E89B7A88A3792_open/320')"></div>
+
+
+                  <div class="flex-column">
+                      <p class="textOverflow abstract">皇马队长谈妥赞助不涂黑战靴，比C罗少赚800万！</p>
+                      <p class="from">搜达足球</p>
+                  </div>
+              </div>
+              <div class="border-line"></div>
+          </li>
+          <li class="uls">
+              <div class="status">
+                  <span>76天前 推荐</span>
+              </div>
+
+              <div class="border-line" style="margin-top: 9px; -webkit-transform-origin: 0 100%;"></div>
+              <div class="flexcontainer" cmd="jumpLink" data-url="http://post.mp.qq.com/kan/show/200652470-13561347.html?article_id=13561347&amp;_wv=2281701505&amp;sig=efbff02e46482ba8e62cf6d5d3f79afe&amp;time=1476159760" data-id="10451592">
+
+
+                  <div class="bgimg lazy" style="background-image: url(&quot;http://qqpublic.qpic.cn/qq_public/0/0-3162117534-3CFCF94F10DF7D3696A2806622F2E4F5/320&quot;);"></div>
+
+
+                  <div class="flex-column">
+                      <p class="textOverflow abstract">全世界都在安利这部爆款美剧，首播两集便已封神</p>
+                      <p class="from">热门电影图解剧场</p>
+                  </div>
+              </div>
+              <div class="border-line"></div>
+          </li>
+          <li class="uls">
+              <div class="status">
+                  <span>76天前 推荐</span>
+              </div>
+
+              <div class="border-line" style="margin-top: 9px; -webkit-transform-origin: 0 100%;"></div>
+              <div class="flexcontainer" cmd="jumpLink" data-url="http://post.mp.qq.com/kan/show/200652470-13557030.html?article_id=13557030&amp;_wv=2281701505&amp;sig=1504e4622eef342c771acea4f1a48ce2&amp;time=1476156892" data-id="10447846">
+
+
+                  <div class="bgimg lazy" style="background-image: url(&quot;http://qqpublic.qpic.cn/qq_public_cover/0/0-10000-003422C9F7EC5F8B119CE68629D43342_open/320&quot;);"></div>
+
+
+                  <div class="flex-column">
+                      <p class="textOverflow abstract">马云：冲击各行各业的不是互联网而是对互联网的无知</p>
+                      <p class="from">科技精英先锋</p>
+                  </div>
+              </div>
+              <div class="border-line"></div>
+          </li>
+
+      </ul>
+      <div class="loading-more" style="display: block; transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">正在加载中，请稍后...</div>
+    </div>
+  </div>
+  <div class="" id="footer"></div>
+
+
+
+
+  <script src="//alloyteam.github.io/AlloyTouch//transformjs/transform.js"></script>
+  <script src="//unpkg.com/alloytouch@0.2.5/alloy_touch.css.js"></script>
+  <script>
+    var scroller = document.getElementById('scroller'),
+        arrow = document.getElementById('arrow'),
+        pull_refresh = document.getElementById('pull_refresh'),
+        list = document.getElementById('list'),
+        index = 0,
+        loading = false,
+        mockHtml = list.innerHTML;
+    Transform(pull_refresh, true);
+    Transform(scroller, true);
+    var myAT = new AlloyTouch({
+      touch: '#wrapper',  //反馈触摸的dom
+      vertical: true,     //不必需， 默认true 代表监听竖直方向touch
+      target: scroller,   //运动的对象
+      property: "translateY", //被滚动的属性
+      initialValue: 0,
+      min: window.innerHeight - 45 - 48 - (150*4), // 不必需，滚动属性的最小值 取wrapper高度值 - 初始条目+2.25左右总高度 
+      max: 0, //不必需。滚动属性最大值
+      change: function(value){
+        pull_refresh.translateY = value;
+      },
+      touchMove: function(evt, value){
+        if(value>70){
+          arrow.classList.add("arrow-up");
+        }else{
+          arrow.classList.remove("arrow-up");
+          if(value<=this.min+5 && !loading){
+            loading = true;
+            loadMore();
+          }
+        }
+
+      },
+      touchEnd: function(evt, value){
+        if(value>70){
+          this.to(60);
+          mockRequest(this);
+          return false;
+        }else{
+        }
+      }
+    });
+
+    function loadMore() {
+      setTimeout(() => {
+        list.innerHTML += mockHtml;
+        loading = false;
+        resetMin();
+      }, 500);
+    }
+
+    function mockRequest(at){
+      pull_refresh.classList.add('refreshing');
+      setTimeout(() => {
+        list.innerHTML += mockHtml;
+        arrow.classList.remove("arrow-up");
+        pull_refresh.classList.remove("refreshing");
+        pull_refresh.translateY = 0;
+        at.to(at.initialValue);
+        resetMin();
+      }, 500);
+    }
+
+    function resetMin() {
+      myAT.min = -1 * parseInt(getComputedStyle(scroller).height) + window.innerHeight - 45 - 48;
+    }
+
+  </script>
+</body>
+</html>

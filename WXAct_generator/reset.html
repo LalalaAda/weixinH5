@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>------</title>
+  <style>
+    html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}html,body{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;text-size-adjust:100%}body{overflow-x:hidden;width:100%;width:100vw;margin:0;padding:0}input,button{outline:0}a{text-decoration:none;-webkit-tap-highlight-color:transparent}.clearfix{*zoom:1}.clearfix:before,.clearfix:after{content:" ";display:table}.clearfix:after{clear:both}h1,h2,h3,h4,h5,h6,p,ul,li{margin:0;padding:0}ul,li{list-style:none}img{vertical-align:middle}input[type="submit"],input[type="reset"],input[type="button"],button{-webkit-appearance:none}.fl{float:left}.fr{float:right}.font-ellipsis{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.fcolor_grey{color:#999}.fjustify{text-align:justify}
+  </style>
+  <script>
+    !function(a,b){function c(){var b=f.getBoundingClientRect().width;b/i>540&&(b=540*i);var c=b/10;f.style.fontSize=c+"px",k.rem=a.rem=c}var d,e=a.document,f=e.documentElement,g=e.querySelector('meta[name="viewport"]'),h=e.querySelector('meta[name="flexible"]'),i=0,j=0,k=b.flexible||(b.flexible={});if(g){var l=g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);l&&(j=parseFloat(l[1]),i=parseInt(1/j))}else if(h){var m=h.getAttribute("content");if(m){var n=m.match(/initial\-dpr=([\d\.]+)/),o=m.match(/maximum\-dpr=([\d\.]+)/);n&&(i=parseFloat(n[1]),j=parseFloat((1/i).toFixed(2))),o&&(i=parseFloat(o[1]),j=parseFloat((1/i).toFixed(2)))}}if(!i&&!j){var q=a.devicePixelRatio,u=q.toString().match(/^[1-9]\d*$/g);i=u?q>=3&&(!i||i>=3)?3:q>=2&&(!i||i>=2)?2:1:1,j=1/i}if(f.setAttribute("data-dpr",i),!g)if(g=e.createElement("meta"),g.setAttribute("name","viewport"),g.setAttribute("content","initial-scale="+j+", maximum-scale="+j+", minimum-scale="+j+", user-scalable=no"),f.firstElementChild)f.firstElementChild.appendChild(g);else{var r=e.createElement("div");r.appendChild(g),e.write(r.innerHTML)}a.addEventListener("resize",function(){clearTimeout(d),d=setTimeout(c,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(d),d=setTimeout(c,300))},!1),"complete"===e.readyState?e.body.style.fontSize=12*i+"px":e.addEventListener("DOMContentLoaded",function(){e.body.style.fontSize=12*i+"px"},!1),c(),k.dpr=a.dpr=i,k.refreshRem=c,k.rem2px=function(a){var b=parseFloat(a)*this.rem;return"string"==typeof a&&a.match(/rem$/)&&(b+="px"),b},k.px2rem=function(a){var b=parseFloat(a)/this.rem;return"string"==typeof a&&a.match(/px$/)&&(b+="rem"),b}}(window,window.lib||(window.lib={}));
+  </script>
+  <style>
+    .sys-pop{width:100%;background-color:rgba(0,0,0,.8);position:fixed;z-index:9999;top:0;left:0;min-height:100vh}.sys-tips-err{border-radius:0.2rem;background-color:#fff;top:50%;left:50%;-webkit-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0);text-align:center;position:absolute}.sys-tips-err p{line-height:1.7;font-size:14px;padding:0.1rem 0.2rem;white-space:nowrap}.sys-popfx-arrow{display:block;margin-left:auto;margin-right:auto;width:4.0rem;height:4.0rem;margin-top:17%}.sys-popfx-p{line-height:1.7;margin-left:auto;margin-right:auto;color:#fff;text-align:center;margin-top:0.266667rem;font-size:0.48rem}.sys-over{width:100%;height:100%;width:100vw;height:100vh;position:fixed;z-index:999;background-color:rgba(0,0,0,0.8);top:0;left:0}.sys-over p{font-size:16px;text-align:center;color:#fff;font-weight:500;position:absolute;top:50%;left:50%;transform:translate3d(-50%,-50%,0);-webkit-transform:translate3d(-50%,-50%,0)}.landscapescreen{width:100%;height:100%;width:100vw;height:100vh;color:#fff;background-color:#008c8c;font-size:22px;text-align:center;display:none;z-index:999999;position:fixed;line-height:100%;top:0;left:0;-webkit-backface-visibility:hidden;backface-visibility:hidden}.landscapescreen span{top:50%;position:absolute;left:20%;right:20%;display:none}@media screen and (orientation:landscape){.landscapescreen,.landscapescreen span{display:block}.sys-music.on{-webkit-animation:none;animation:none}}
+  </style>
+</head>
+<body class="">
+  <div id="landscapescreen" class="landscapescreen"><span>为了更好的体验，请使用竖屏浏览</span></div>
+
+  
+
+  <!-- 自定义系统的弹窗 -->
+  <div id="sys_acOver" class="sys-over" style="display: none;">
+    <p>活动已结束，谢谢关注</p>
+  </div>
+  <div id="sys_popShare" class="sys-pop" style="display: none;">
+    <img src="//udata.youban.com/webimg/weixin/bt_arrow.png" alt="" class="sys-popfx-arrow">
+    <p class="sys-popfx-p">点击右上角按钮<br>分享至朋友圈吧</p>
+  </div>
+  <div id="sys_tipsNormal" class="sys-pop" style="display: none;">
+    <div class="sys-tips-err">
+      <p></p>
+    </div>
+  </div>
+
+  <script src="/js/zepto.min-fade.js"></script>
+  <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+  <!-- <script src="/js/vsonsole.min.js"></script> -->
+  <script>
+    var GameReady = false; //数据初始化标志
+    (function(){
+      var landscapescreen = document.getElementById('landscapescreen');
+      landscapescreen.addEventListener('click', function(e){e.preventDefault();}, false);
+      landscapescreen.addEventListener('touchmove', function(e){e.preventDefault();}, false);
+      var OVER = document.getElementById('sys_acOver');
+      OVER.addEventListener('click', function(e){e.preventDefault();}, false);
+      OVER.addEventListener('touchmove', function(e){e.preventDefault();}, false);
+      $(document).on('touchstart click', function(e){
+        var sign = false;
+        if(!GameReady){ e.preventDefault(); sign = false; }else{ sign = true; }
+        return sign;
+      });
+    })();
+
+    var GlobalTools = {
+      // PopMsg 显示弹窗 params： str(string)文本内容 willdis(boolean)是否渐隐 tourl(string)跳转的链接
+      // PopMsg('你已经购买完学堂包了', true, '');
+      popDisTime: 0,
+      PopMsg: function(str, willdis, tourl){
+        var $pop = $('#sys_tipsNormal');
+        $pop.find('.sys-tips-err p').text(str);
+        $pop.show();
+        function gotoOther(url){
+          if(url&&url !==''){
+            var timestamp = Date.parse(new Date());
+            window.location.href = url+'&v='+timestamp;
+          }else{
+          }
+        }
+        if(willdis){
+          // 2秒隐藏弹框
+          this.popDisTime&&clearTimeout(this.popDisTime);
+          this.popDisTime = setTimeout(function(){
+            $pop.hide();
+            gotoOther(tourl);
+          },2000);
+        }else{
+        }
+      },
+      showSysSharePop: function(){
+        $('#popShare').fadeIn();
+        $('#popShare').one('click', function(e){
+          $(this).fadeOut();
+        });
+      },
+      showAcOver: function(){
+        document.getElementById('sys_acOver').style.display = 'block';
+      },
+
+    };
+    
+    var ISOVER = 0,ajaxErrorCount=0;
+    function htmlWriteData(){
+      if(!0){
+        document.body.scrollTop = document.body.clientHeight;
+      }else{
+      }
+      if(ISOVER===1){
+        GlobalTools.showAcOver();
+      }else{
+      }
+      GameReady = true;
+    }
+    function init(){
+      $.ajax({
+        type: 'GET',
+        url: '/quiz/index.json',
+        data: "",
+        cache: false,
+        dataType: 'json',
+        success: function(data){
+          if (data.rc==0) {
+            // TODO  init some data
+            htmlWriteData();
+          }else{
+            console.log('初始化error');
+          }
+        },
+        error: function(){
+          ajaxErrorCount++;
+          if(ajaxErrorCount>=4){
+            GlobalTools.PopMsg('请检查网络连接,刷新页面重试', true, '');
+          }else{
+            setTimeout(function(){
+              init();
+            }, 800*ajaxErrorCount);
+          }
+        }
+      });
+    }
+    init();
+  </script>
+
+  <!-- WX FUNC js -->
+  <script>
+    var SH_DataObj = {
+      img : "//udata.youban.com/webimg/xblshare.png",
+      title : "",
+      dec: "",
+      fullURL: ""+window.location.href,
+      host: ""+window.location.host,
+      shortURL: ""+window.location.href.split("?")[0],
+      protocol: ""+document.location.protocol,
+      userName: '',
+      avatar: '',
+      canShare: true,
+    };
+   
+    if(SH_DataObj.protocol==='http' || SH_DataObj.protocol==='https'){
+    }else{
+      SH_DataObj.protocol = 'http';
+    }
+    SH_DataObj.img = SH_DataObj.protocol + ":" + SH_DataObj.img;//在WXSHDATA中图片地址要带协议http/https
+
+    if(SH_DataObj.avatar!=''){
+      SH_DataObj.img = SH_DataObj.avatar;
+    }else{
+    }
+
+    function Wx_shareWhere(){
+      $.get('/common/record.json?childrenday=childrenday_index_share_success',{}, function(data){});
+    }
+
+    var WXSHDATA = {
+      title: SH_DataObj.title,
+      link: encodeURI(SH_DataObj.shortURL),
+      imgUrl: SH_DataObj.img,
+      type: "link",
+      dataUrl: "",
+      desc: SH_DataObj.dec,
+      success: function() {
+        //Wx_shareWhere();
+      },
+      cancel: function(){}
+    };
+    
+    function WxDo(uflag){
+      //分享
+      $.post('/weixin/config', {
+        url: SH_DataObj.fullURL,
+      }, function(data) {
+        data = JSON.parse( data );
+        //console.log(data);
+        var apilist = [
+          'onMenuShareTimeline',
+          'onMenuShareAppMessage',
+          'showOptionMenu',
+          'hideOptionMenu',
+          'hideMenuItems'
+        ];
+        wx.config({
+          debug: false,
+          appId: data.appId,
+          timestamp: data.timestamp,
+          nonceStr: data.nonceStr,
+          signature: data.signature,
+          jsApiList: apilist
+        });
+        wx.error(function(res) {
+          console.log(JSON.stringify(res));
+        });
+        wx.ready(function() {
+          if(uflag){
+            wx.onMenuShareAppMessage(WXSHDATA);
+            wx.onMenuShareTimeline(WXSHDATA); //朋友圈
+          }else{
+            wx.hideMenuItems({
+              menuList: [
+                "menuItem:share:appMessage",
+                "menuItem:share:timeline",
+                "menuItem:share:qq",
+                "menuItem:share:weiboApp",
+                "menuItem:favorite",
+                "menuItem:share:facebook",
+                "menuItem:share:QZone",
+                "menuItem:editTag",
+                "menuItem:delete",
+                "menuItem:copyUrl",
+                "menuItem:originPage",
+                "menuItem:readMode",
+                "menuItem:openWithQQBrowser",
+                "menuItem:openWithSafari",
+                "menuItem:share:email",
+              ] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮
+            });
+          }
+        });
+      });
+    }
+    WxDo(SH_DataObj.canShare);
+  </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>navbar</title>
+  <style>
+    *{box-sizing: border-box;}
+    html{font-size: 12px;}
+
+    .dont-render-dawg{position: absolute;height: 0;width: 0;}
+    .main-nav{background: #eee;}
+    .main-nav ul{margin: 0;padding: 0;display: flex;flex-wrap: wrap;justify-content: center;list-style: none;}
+    .main-nav ul a{padding: 1.25rem 0.5rem;font-size: 1.6rem;max-width: 140px;font-weight: bold;text-decoration: none;display: flex;align-items: flex-start;color: #333;}
+    .main-nav ul a:hover, .main-nav>ul>a:focus{background: #ccc;color: black;}
+    .main-nav ul a:hover svg, .main-nav>ul>a:focus svg{fill: green;}
+    .main-nav ul a:hover span, .main-nav>ul>a:focus span{color: black;}
+    .main-nav span{display: block;font-size: 1rem;font-weight: normal;color: #888;margin: 0.25rem 0 0 0;}
+    .main-nav .icon{width: 40px;height: 40px;float: left;margin-right: 1rem;fill: #999;}
+    .main-nav.outlines *{outline: 1px solid rgba(255,0,0,0.5);}
+    .options{text-align: center;padding: 2rem 0;}
+    .options select{margin-right: 2rem;}
+
+    @media (min-width: 1000px){
+      .main-nav a{max-width: 500px;font-size: 2rem;}
+      .main-nav .icon{width: 25px;height: 25px;}
+
+    }
+  </style>
+</head>
+<body>
+  <nav role='navigation' class="main-nav" id="main-nav">
+    <ul id="main-nav-list">
+      <li>
+        <a href="#">
+          <svg class="icon" viewBox="0 0 100 100">
+            <use xlink:href="#leaf"> 
+          </svg>
+          <div>
+            Home
+            <span>is where the heart is</span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <svg class="icon" viewBox="0 0 100 100">
+            <use xlink:href="#maple-leaf">
+          </svg>
+          <div>
+            About
+            <span>to blow this popcicle stand</span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <svg class="icon" viewBox="0 0 100 100">
+            <use xlink:href="#clover">
+          </svg>
+          <div>
+            Clients
+            <span>are beautiful people</span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <svg class="icon" viewBox="0 0 100 100">
+            <use xlink:href="#tomato">
+          </svg>
+          <div>
+            Contact
+            <span>your mom she misses you</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="1.1" id="Layer_1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100"
+    enable-background="new 0 0 100 100" xml:space="preserve" class="dont-render-dawg">
+    <defs>
+      <path id="leaf" d="M51.151-1.011c0,0-32.454,50.827-32.454,71.676c0,20.857,17.35,27.692,32.454,27.692
+  c15.099,0,33.121-8.644,33.121-27.692C84.272,51.621,51.151-1.011,51.151-1.011z M68.621,69.877L53.538,87.741
+  c-0.312,0.37-0.717,0.586-1.147,0.725c-0.105,0.039-0.217,0.044-0.322,0.068c-0.155,0.031-0.296,0.099-0.45,0.099
+  c-0.017,0-0.035-0.009-0.053-0.009s-0.036,0.009-0.052,0.009c0,0,0,0-0.003,0c-0.241,0-0.458-0.073-0.678-0.137
+  c-0.021-0.007-0.042-0.006-0.064-0.015c-0.089-0.027-0.182-0.031-0.264-0.07c-0.082-0.033-0.141-0.1-0.218-0.143
+  c-0.228-0.133-0.441-0.277-0.618-0.471c-0.024-0.024-0.056-0.03-0.078-0.057L34.515,69.876c-0.896-1.059-0.763-2.644,0.297-3.538
+  c1.063-0.893,2.644-0.764,3.535,0.298l10.65,12.619V63.301c-0.019-0.021-0.045-0.026-0.062-0.047l-9.951-11.802
+  c-0.893-1.059-0.758-2.642,0.303-3.537c1.055-0.899,2.639-0.759,3.535,0.302l6.174,7.322V43.225l-6.062-7.185
+  c-0.892-1.058-0.759-2.645,0.299-3.538c1.06-0.896,2.646-0.76,3.538,0.299l2.228,2.643V22.479c0-1.386,1.125-2.51,2.511-2.51
+  c1.387,0,2.511,1.124,2.511,2.51v13.097l2.345-2.776c0.891-1.056,2.471-1.188,3.535-0.299c1.059,0.893,1.194,2.48,0.297,3.538
+  l-6.18,7.321v12.315L60.3,48.22c0.892-1.057,2.475-1.203,3.536-0.302c1.059,0.895,1.195,2.475,0.301,3.537l-9.941,11.802
+  c-0.049,0.06-0.124,0.081-0.179,0.137V79.39l10.766-12.749c0.895-1.059,2.475-1.188,3.536-0.3
+  C69.38,67.233,69.514,68.817,68.621,69.877z" />
+      <path id="maple-leaf" d="M49.994,0.106l-9.212,16.331c-0.193,0.281-0.506,0.474-0.831,0.474c-0.168,0-10.004-5.422-10.004-5.422l5.86,25.626   c0.047,0.131,0.047,0.241,0.047,0.373c0,0.927-0.762,1.656-1.652,1.656c-0.46,0-0.88-0.193-1.175-0.47L22.591,26.55l-3.994,7.082   c-0.216,0.258-0.559,0.481-0.938,0.481c-0.055,0-13.094-2.558-13.094-2.558s4.448,14.068,4.448,14.207   c0,0.445-0.252,0.842-0.621,1.058l-5.516,3.159l23.912,19.013c0.222,0.226,0.343,0.521,0.343,0.846   c0,0.157-2.521,9.946-2.521,9.946s21.094-4.368,21.189-4.368c0.789,0,1.456,0.679,1.456,1.485l-0.438,22.992h6.358l-0.397-22.992   c0-0.807,0.639-1.485,1.445-1.485c0.084,0,21.176,4.368,21.176,4.368s-2.54-9.789-2.54-9.946c0-0.324,0.139-0.62,0.354-0.846   l23.911-19.013l-5.513-3.159c-0.372-0.216-0.613-0.613-0.613-1.058c0-0.139,4.44-14.207,4.44-14.207s-13.021,2.558-13.068,2.558   c-0.42,0-0.733-0.223-0.964-0.481l-3.995-7.082l-10.42,12.124c-0.32,0.277-0.722,0.47-1.185,0.47c-0.898,0-1.66-0.729-1.66-1.656   c0-0.131,5.913-25.999,5.913-25.999s-9.832,5.422-9.989,5.422c-0.343,0-0.667-0.193-0.835-0.474L49.994,0.106" />
+      <path id="clover" d="M52.564,62.877c-0.01-0.004-0.022-0.007-0.033-0.007c-0.682,0-1.333,1.271-2.175,2.532
+    c-1.432,2.154-2.518,4.201-3.375,5.994c-1.606,3.379-2.454,7.078-2.571,10.816c-0.084,2.624,0.493,5.286,0.888,7.913
+    c0.384,2.55-0.195,3.538-2.71,4.031c-0.806,0.155-1.64,0.219-2.464,0.226c-1.715,0.014-2.83-0.836-2.938-2.576
+    c-0.13-2.082-0.211-4.188-0.081-6.268c0.348-5.428,1.451-10.036,3.452-15.096c0.699-1.774,2.277-4.67,3.873-7.327
+    c0.702-1.167,0.465-2.755-0.977-1.876c-2.388,1.453-10.571,10.244-22.978,10.244c-10.382,0-17.979-6.151-17.979-21.112
+    c0-9.439,2.07-21.409,13.522-17.901c3.766,1.154,15.186,9.327,16.594,8.178c1.408-1.147-13.243-10.08-13.243-19.517
+    c0-9.665,8.519-17.116,22.948-18.556C54.75,1.337,64.188,6.171,62.323,18.99c-1.232,8.457-2.271,17.223-0.056,13.074
+    c2.199-4.115,2.393-9.143,4.49-13.367c3.624-7.297,10.061-8.714,16.902-5.57c11.213,5.15,22.654,31.718,7.453,37.01
+    c-4.805,1.669-17.176,2.302-17.176,3.693c0,1.88,17.721,0.954,18.479,15.271c0.354,6.658-4.061,21.006-20.173,21.32
+    c-11.739,0.23-18.538-10.857-18.528-21.529C53.718,68.092,53.908,63.132,52.564,62.877z" />
+      <path id="tomato" d="M82.14,36.684c0.723,0.353,1.437,0.728,2.13,1.134c-9.694-11.897-22.107-8.52-22.107-8.52s6.783-11.083,14.372-16.477
+  c-9.056,0.323-15.593,10.052-15.593,10.052s-1.568,1.683-1.668-0.187c-0.676-12.651,3.465-17.498,5.121-19.333
+  c1.387-1.54,2.938-0.772,2.938-0.772s-5.946-2.934-9.978,7.749c-3.533,9.362-4.412,18.487-4.412,18.487s-10.231-10.072-21.353-10.02
+  c9.693,5.264,13.421,8.04,13.421,11.61c-14.358-4.443-27.525,5.428-26.746,5.164c0.051-0.018,0.099-0.032,0.149-0.049
+  C6.818,43.643,2.426,59.371,5.986,73.754C9.109,86.367,17.562,105.753,52.6,96.462c31.076,8.365,39.646-5.174,42.771-22.708
+  C98.141,55.556,91.927,43.342,82.14,36.684z" />
+    </defs>
+  </svg>
+
+  <div class="options">
+    <label for="menu-items-position">Flex Container (justify-content)</label>
+    <select id="menu-items-position">
+      <option value="flex-start">flex-start</option>
+      <option value="flex-end">flex-end</option>
+      <option value="center" selected>center</option>
+      <option value="space-between">space-between</option>
+      <option value="space-around">space-around</option>
+    </select>
+
+    <label for="menu-items">Flex Items (flex)</label>
+    <select id="menu-items">
+      <option value="0 1 auto">0 1 auto (default)</option>
+      <option value="1 1 auto">1 1 auto</option>
+    </select>
+
+    <label for="show">Show</label>
+    <select id="show">
+      <option value="">normal</option>
+      <option value="outlines">outlines</option>
+    </select>
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    (function(){
+      $(document).ready(function(){
+        $('#menu-items-position').on('change', function(e){
+          $('#main-nav-list').css("justify-content", $(this).find('option:selected').val());
+        });
+        $('#menu-items').on('change', function(e){
+          $('#main-nav-list li').css('flex', $(this).find('option:selected').val());
+        });
+        $('#show').on('change', function(e){
+          $('#main-nav').removeClass('outlines').addClass($(this).find('option:selected').val());
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
