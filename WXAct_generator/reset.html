@@ -48,9 +48,9 @@
       var OVER = document.getElementById('sys_acOver');
       OVER.addEventListener('click', function(e){e.preventDefault();}, false);
       OVER.addEventListener('touchmove', function(e){e.preventDefault();}, false);
-      $(document).on('touchstart click', function(e){
+      $(document).on('touchstart click', function(){
         var sign = false;
-        if(!GameReady){ e.preventDefault(); sign = false; }else{ sign = true; }
+        if(!GameReady){ sign = false; }else{ sign = true; }
         return sign;
       });
     })();
@@ -166,7 +166,7 @@
 
     var WXSHDATA = {
       title: SH_DataObj.title,
-      link: encodeURI(SH_DataObj.shortURL),
+      link: encodeURI(SH_DataObj.shortURL),  // (SH_DataObj.host+'/holiday/quiz/index');
       imgUrl: SH_DataObj.img,
       type: "link",
       dataUrl: "",
